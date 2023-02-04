@@ -4,3 +4,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tab {
+  @apply font-Roboto text-xl font-semibold text-amber-500 text-center block py-1 hover:bg-red-800 md:px-6 md:pt-5 transition ease-in duration-300;
+}
+
+.card {
+  @apply font-Roboto bg-red-700 rounded-lg inline-block p-3 m-8 shadow-md shadow-zinc-500 cursor-pointer hover:bg-red-800 transition ease-in duration-100;
+}
