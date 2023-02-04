@@ -6,7 +6,7 @@ function Card(props) {
       className="card"
       onClick={() => {
         props.incrementScore();
-        props.incrementBestScore();
+        props.checkArray(props.zodiac);
       }}
     >
       <div className="border-4 rounded-lg border-amber-500 p-5">

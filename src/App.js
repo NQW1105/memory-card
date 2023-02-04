@@ -45,16 +45,28 @@ const zodiacObj = [
 function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  // const [chosen, setChosen] = useState([]);
+  const [array, setArray] = useState([]);
 
   const incrementScore = () => {
     // Include 'OR' conditional statement, trigger when player lose
     score === 12 || score >= 12 ? setScore(0) : setScore(score + 1);
   };
 
-  // const incrementBestScore = () => {
-  //   bestScore >= 12 ? setBestScore(12) : setBestScore(bestScore + 1);
-  // };
+  const checkArray = (chosenZodiac) => {
+    console.log(chosenZodiac);
+    // console.log(event.target.classList.contains('card'));
+    if (array.includes(chosenZodiac)) {
+      console.log('DUPLICATE');
+      setScore(0);
+      setArray([]);
+    } else {
+      const updatedArray = array.concat(chosenZodiac);
+      setArray(updatedArray);
+    }
+  };
+
+  // Updating bestScore with componentdidupdate causes duplicate in shuffle cards
+  // Alternative is random card instead
   useEffect(() => {
     if (score > bestScore) {
       setBestScore(bestScore + 1);
@@ -79,7 +91,7 @@ function App() {
       <CardList
         zodiac={zodiacObj}
         incrementScore={incrementScore}
-        // incrementBestScore={incrementBestScore}
+        checkArray={checkArray}
       />
     </div>
   );
